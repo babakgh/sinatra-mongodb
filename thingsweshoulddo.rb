@@ -48,6 +48,7 @@ class ThingsWeShouldDo < Sinatra::Base
 
   get '/' do 
     @things = Thing.where(suggestion:false).sort(:votes.desc)
+    @count = Thing.where(suggestion:false, completed:true).count
     erb :index
   end
 
@@ -83,6 +84,21 @@ class ThingsWeShouldDo < Sinatra::Base
     @thing = Thing.create(params[:thing])
     flash[:notice] = "Thanks for the suggestion!"
     redirect '/'
+  end
+
+  get '/EAT' do 
+    @things = Thing.where(suggestion:false, :tags => 'EAT').sort(:votes.desc)
+    erb :index
+  end
+
+  get '/SEE' do 
+    @things = Thing.where(suggestion:false, :tags => 'SEE').sort(:votes.desc)
+    erb :index
+  end
+
+  get '/DO' do 
+    @things = Thing.where(suggestion:false, :tags => 'DO').sort(:votes.desc)
+    erb :index
   end
 
   get '/:id/vote-up' do |id|

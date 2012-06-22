@@ -38,7 +38,7 @@
     <% if flash[:notice] %>
       <center><span class="notice"><%= flash[:notice] %></span></center>
     <% end %>
-    <h5><script>document.write(daysLeft);</script> days left in PDX</h5>
+    <h5><script>document.write(daysLeft);</script> days left in PDX</h5> <%= "to do #{@count} things" if @count %>
     <div id="content">
       <%= yield %>
     </div>
