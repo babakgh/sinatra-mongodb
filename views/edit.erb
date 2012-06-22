@@ -1,5 +1,5 @@
 <form action="/<%= @thing.id %>/edit" class="new_thing" id="new_thing" method="post">
-  <input id="thing_title" name="thing[title]" rows="1"><%= @thing.title %></input>
+  <input id="thing_title" name="thing[title]" rows="1" value="<%= @thing.title %>"></input>
   <br> 
   <select id="thing_tags" name="thing[tags]">
     <option value="EAT">EAT</option>
@@ -7,7 +7,7 @@
     <option vlaue="DO">DO</option>
   </select>
   <br>
-  <textarea id="thing_notes" name="thing[notes]" placeholder="Anything we should know about this?"><%= @thing.notes %></textarea>
+  <textarea id="thing_notes" name="thing[notes]" placeholder="Anything we should know about this?" <%= "value=\"#{@thing.notes}\"" if @thing.notes %>></textarea>
   <br>
   <label for="thing_suggestion">Publish?</label>
   <input name="thing[suggestion]" type="hidden" value="1" /><input checked="checked" id="thing_suggestion" name="thing[suggestion]" type="checkbox" value="0" />
