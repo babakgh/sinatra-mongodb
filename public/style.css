@@ -141,8 +141,8 @@ a.button:hover {
   padding: 3px;
   border-radius: 10px;
   color: white;
-  margin: 0 5px;
-  font-size: 90%;
+  margin: 0 10px 0 0;
+  font-size: 80%;
 }
 
 #DO {
@@ -150,8 +150,8 @@ a.button:hover {
   padding: 3px;
   border-radius: 10px;
   color: white;
-  margin: 0 5px;
-  font-size: 90%;
+  margin: 0 10px 0 0;
+  font-size: 80%;
 }
 
 #SEE {
@@ -159,6 +159,6 @@ a.button:hover {
   padding: 3px;
   border-radius: 10px;
   color: white;
-  margin: 0 5px;
-  font-size: 90%;
+  margin: 0 10px 0 0;
+  font-size: 80%;
 }
