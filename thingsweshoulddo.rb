@@ -40,6 +40,7 @@ class ThingsWeShouldDo < Sinatra::Base
     key :suggestion, Boolean, :default => true
     key :votes, Integer, :default => 0
     key :tags, String
+    key :notes, String
     key :completed, Boolean, :default => false
 
     timestamps!

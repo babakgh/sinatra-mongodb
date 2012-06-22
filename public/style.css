@@ -97,6 +97,12 @@ a.button:hover {
   text-align: center;
 }
 
+#thing_notes {
+  width: 400px;
+  height: 60px;
+  margin: 5px;
+}
+
 #save-button {
   float: right;
   background: black;
@@ -128,4 +134,25 @@ a.button:hover {
   color: white;
   padding: 10px;
   border-radius: 15px;
+}
+
+#EAT {
+  background: red;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+#DO {
+  background: blue;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+#SEE {
+  background: green;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
 }
