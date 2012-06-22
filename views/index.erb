@@ -1,7 +1,7 @@
 <ul id="index-list">
 <% if @things %>
   <% @things.each do |thing| %>
-    <li><h3 <%= "style=\"text-decoration: line-through;\"" if thing.completed %>><%= thing.title %> <small style="margin: 0 20px;"> <%= thing.votes %> </small> <a href="/<%=thing.id%>/vote-up" id="vote-up">&#43;</a><a href="/<%=thing.id%>/vote-down" id="vote-down" style="margin-left: 10px;">&#8722;</a></h3></li><hr>
+    <li><h3 <%= "style=\"text-decoration: line-through;\"" if thing.completed %>><%= thing.title %> <small style="margin: 0 20px;"> <%= thing.votes %> </small> <a href="/<%=thing.id%>/vote-up" id="<%= thing.id %>"class="vote-up">&#x25B2;</a><a href="/<%=thing.id%>/vote-down" id="<%= thing.id %>" class="vote-down">&#x25BC;</a></h3></li><hr>
   <% end %>
 <% else %>
   <li> No things to do </li>
