@@ -5,7 +5,7 @@
     <% @suggestions.each do |suggestion| %>
       <li id="post-<%= suggestion.id %>">
         <h3>
-         <%= suggestion.title %>
+         <a href="/<%=suggestion.id%>/edit"><%= suggestion.title %></a>
           <span class="links">
             <a href="/<%=suggestion.id%>/approve" id="approve" rel="nofollow">&#10003;</a>
             <a href="/<%=suggestion.id%>/delete" id="remove" rel="nofollow">x</a>
@@ -23,7 +23,7 @@
     <% @published.each do |pub| %>
       <li id="post-<%= pub.id %>">
         <h3 <%= "style=\"text-decoration: line-through;\"" if pub.completed %>>
-         <%= pub.title %>
+         <a href="/<%=pub.id%>/edit"><%= pub.title %></a>
           <span class="links">
             <a href="/<%=pub.id%>/complete" id="approve" rel="nofollow">&#10003;</a>
             <a href="/<%=pub.id%>/delete" rel="nofollow">x</a>

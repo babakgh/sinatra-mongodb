@@ -131,6 +131,20 @@ class ThingsWeShouldDo < Sinatra::Base
     redirect '/admin'
   end
 
+  get '/:id/edit' do |id|
+    protected!
+    @no_header = true
+    @thing = Thing.find(id)
+    erb :edit
+  end
+
+  post '/:id/edit' do |id|
+    protected!
+    @thing = Thing.find(id)
+    @thing.update_attributes(params[:thing])
+    redirect '/admin'
+  end
+
   get '/:id/delete' do |id|
     protected!
     @thing = Thing.find(id)
@@ -138,7 +152,7 @@ class ThingsWeShouldDo < Sinatra::Base
     redirect '/admin'
   end
 
-  get '/:id' do |id|
+  get '/:id' do |id| 
     @thing = Thing.find(id)
     erb :thing
   end

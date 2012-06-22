@@ -2,4 +2,4 @@ This is a simple web app to keep a list of things to be done before leaving Oreg
 
 Features to add include:
 
-* voting on things to move them up the list
+* commenting on things
