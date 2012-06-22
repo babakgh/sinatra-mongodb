@@ -138,6 +138,11 @@ class ThingsWeShouldDo < Sinatra::Base
     redirect '/admin'
   end
 
+  get '/:id' do |id|
+    @thing = Thing.find(id)
+    erb :thing
+  end
+
   not_found { erb :'404' }
 end
 
