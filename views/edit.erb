@@ -7,7 +7,7 @@
     <option vlaue="DO">DO</option>
   </select>
   <br>
-  <textarea id="thing_notes" name="thing[notes]" placeholder="Anything we should know about this?" <%= "value=\"#{@thing.notes}\"" if @thing.notes %>></textarea>
+  <textarea id="thing_notes" name="thing[notes]" placeholder="Anything we should know about this?"><%= @thing.notes %></textarea>
   <br>
   <label for="thing_suggestion">Publish?</label>
   <input name="thing[suggestion]" type="hidden" value="1" /><input checked="checked" id="thing_suggestion" name="thing[suggestion]" type="checkbox" value="0" />
