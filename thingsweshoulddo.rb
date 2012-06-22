@@ -51,7 +51,7 @@ class ThingsWeShouldDo < Sinatra::Base
   end
 
   get '/admin' do 
-    #protected!
+    protected!
     @no_header = true
     @thing = Thing.new
     @published = Thing.where(suggestion:false).sort(:updated_at.desc)
@@ -60,14 +60,14 @@ class ThingsWeShouldDo < Sinatra::Base
   end
 
   get '/new' do 
-    #protected!
+    protected!
     @no_header = true
     @thing = Thing.new
     erb :new
   end
 
   post '/new' do 
-    #protected!
+    protected!
     @thing = Thing.create(params[:thing])
     redirect '/admin'
   end
@@ -85,7 +85,7 @@ class ThingsWeShouldDo < Sinatra::Base
   end
 
   get '/:id/approve' do |id|
-    #protected!
+    protected!
     @thing = Thing.find(id)
     @thing.suggestion = false
     @thing.save
@@ -93,7 +93,7 @@ class ThingsWeShouldDo < Sinatra::Base
   end
 
   get '/:id/complete' do |id|
-    #protected!
+    protected!
     @thing = Thing.find(id)
     @thing.completed = true
     @thing.save
@@ -101,7 +101,7 @@ class ThingsWeShouldDo < Sinatra::Base
   end
 
   get '/:id/delete' do |id|
-    #protected!
+    protected!
     @thing = Thing.find(id)
     @thing.destroy unless @thing.nil?
     redirect '/admin'
