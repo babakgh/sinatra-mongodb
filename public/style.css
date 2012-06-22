@@ -113,6 +113,14 @@ a.button:hover {
   background: red;
 }
 
+#vote-up:hover {
+  color: green;
+}
+
+#vote-down:hover {
+  color: red;
+}
+
 .notice {
   text-align: center;
   background: green;

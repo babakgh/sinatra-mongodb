@@ -38,7 +38,7 @@ class ThingsWeShouldDo < Sinatra::Base
     include MongoMapper::Document
     key :title, String, :required => true
     key :suggestion, Boolean, :default => true
-    key :votes, Integer
+    key :votes, Integer, :default => 0
     key :tags, String
     key :completed, Boolean, :default => false
 
@@ -46,7 +46,7 @@ class ThingsWeShouldDo < Sinatra::Base
   end
 
   get '/' do 
-    @things = Thing.where(suggestion:false).sort(:updated_at.desc)
+    @things = Thing.where(suggestion:false).sort(:votes.desc)
     erb :index
   end
 
@@ -81,6 +81,20 @@ class ThingsWeShouldDo < Sinatra::Base
   post '/suggestion' do 
     @thing = Thing.create(params[:thing])
     flash[:notice] = "Thanks for the suggestion!"
+    redirect '/'
+  end
+
+  get '/:id/vote-up' do |id|
+    @thing = Thing.find(id)
+    @thing.votes += 1
+    @thing.save
+    redirect '/'
+  end
+
+  get '/:id/vote-down' do |id|
+    @thing = Thing.find(id)
+    @thing.votes == 0 ? @thing.votes = 0 : @thing.votes -= 1
+    @thing.save
     redirect '/'
   end
 
