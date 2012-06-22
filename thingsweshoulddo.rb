@@ -48,7 +48,7 @@ class ThingsWeShouldDo < Sinatra::Base
 
   get '/' do 
     @things = Thing.where(suggestion:false).sort(:votes.desc)
-    @count = Thing.where(suggestion:false, completed:true).count
+    @count = Thing.where(suggestion:false, completed:false).count
     erb :index
   end
 
