@@ -1,0 +1,12 @@
+<form action="/new" class="new_thing" id="new_thing" method="post">
+  <input id="thing_title" name="thing[title]" placeholder="Thing Here" rows="1"></input>
+  <br> 
+  <input id="thing_tags" name="thing[tags]" placeholder="tags, go, here"></input>
+  <br>
+  <label for="thing_suggestion">Publish?</label>
+  <input name="thing[suggestion]" type="hidden" value="1" /><input checked="checked" id="thing_suggestion" name="thing[suggestion]" type="checkbox" value="0" />
+
+  <input id="save-button" name="commit" type="submit" value="Save" />
+  <div style="clear: both;"></div>
+  <a href="/admin">&laquo; Admin</a>
+</form>

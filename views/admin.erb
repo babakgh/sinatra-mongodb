@@ -1,0 +1,35 @@
+<div id="submissions" class="col">
+  <h2>Suggestions <a href='/new' class='button'>New Thing</a></h2>
+  <br><hr>
+  <ul>
+    <% @suggestions.each do |suggestion| %>
+      <li id="post-<%= suggestion.id %>">
+        <h3>
+         <%= suggestion.title %>
+          <span class="links">
+            <a href="/<%=suggestion.id%>/approve" id="approve" rel="nofollow">&#10003;</a>
+            <a href="/<%=suggestion.id%>/delete" id="remove" rel="nofollow">x</a>
+          </span>
+        </h3>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="published" class="col">
+  <h2>Published <a href='/' class='button'>Home</a></h2>
+  <br><hr>
+  <ul>
+    <% @published.each do |pub| %>
+      <li id="post-<%= pub.id %>">
+        <h3 <%= "style=\"text-decoration: line-through;\"" if pub.completed %>>
+         <%= pub.title %>
+          <span class="links">
+            <a href="/<%=pub.id%>/complete" id="approve" rel="nofollow">&#10003;</a>
+            <a href="/<%=pub.id%>/delete" rel="nofollow">x</a>
+          </span>
+        </h3>
+      </li>
+    <% end %>
+  </ul>
+</div>

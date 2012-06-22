@@ -1,0 +1,9 @@
+<ul id="index-list">
+<% if @things %>
+  <% @things.each do |thing| %>
+    <li><h3 <%= "style=\"text-decoration: line-through;\"" if thing.completed %>><%= thing.title %></h3></li><hr>
+  <% end %>
+<% else %>
+  <li> No things to do </li>
+<% end %>
+</ul>

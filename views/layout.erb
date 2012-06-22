@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <title><%= settings.title %></title>
+  <link rel="stylesheet" href="/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,900' rel='stylesheet' type='text/css' />
+  <% if @no_header %>
+    <style type="text/css">
+      #container {
+        margin: 10px;
+      }
+    </style>
+  <% end %>
+  <script language="javascript" type="text/javascript">
+    today  = new Date();
+    todayEpoch  = today.getTime();
+    target = new Date('31 August, 2012'); 
+    targetEpoch = target.getTime();
+    daysLeft = Math.floor(((targetEpoch - todayEpoch) / (60*60*24)) / 1000);
+  </script>
+</head>
+
+<body>
+  <% unless @no_header %>
+    <header>
+      <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+      <br>
+      <h1><a href="/"><%= settings.title %></a></h1>
+      <br>
+      <p>McKenzie and I are leaving Oregon soon and want to experience as much here as possible. These are some things we should see, do, or eat before leaving town.</p>
+      <br>
+      <a href="/suggestion"><h4>Submit something we should do!</h4></a>
+    </header>
+  <% end %>
+
+  <div id="container">
+    <% if flash[:notice] %>
+      <center><span class="notice"><%= flash[:notice] %></span></center>
+    <% end %>
+    <h5><script>document.write(daysLeft);</script> days left in PDX</h5>
+    <div id="content">
+      <%= yield %>
+    </div>
+  </div>
+  <% if settings.google_analytics_id %>
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '<%= settings.google_analytics_id %>']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <% end %>
+</body>
+</html>

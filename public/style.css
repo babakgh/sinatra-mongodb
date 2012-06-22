@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  font-family: 'Lato';
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style: none;
+  margin-left: 5px;
+}
+
+header {
+  float: left;
+  width: 120px;
+  margin: 10px;
+}
+
+header a:hover {
+  color: green;
+}
+
+#container {
+  margin: 10px 10px 0 140px;
+}
+
+#content {
+  width: 100%;
+}
+
+ul#index-list li {
+  margin-left: 50px;
+  padding: 20px;
+}
+
+.col {
+  float: left;
+  width: 400px;
+  margin: 20px;
+}
+
+.col li {
+  padding: 5px;
+}
+
+.links {
+  margin-left: 20px;
+}
+
+#approve:hover {
+  color: green ;
+}
+
+#remove:hover {
+  color: red;
+}
+
+a.button {
+  background: black;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 15px;
+  font-size: 90%;
+}
+
+a.button:hover {
+  background: red;
+}
+
+.new_thing {
+  width: 400px;
+  margin: 0 auto;
+}
+
+#thing_title {
+  height: 40px;
+  width: 400px;
+  margin: 5px;
+  font-size: 30px;
+  text-align: center;
+}
+
+#thing_tags {
+  height: 20px;
+  width: 400px;
+  margin: 5px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#save-button {
+  float: right;
+  background: black;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  border: 0;
+}
+
+#save-button:hover {
+  background: red;
+}
+
+.notice {
+  text-align: center;
+  background: green;
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+}
