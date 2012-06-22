@@ -138,21 +138,27 @@ a.button:hover {
 
 #EAT {
   background: red;
-  padding: 5px;
-  border-radius: 5px;
+  padding: 3px;
+  border-radius: 10px;
   color: white;
+  margin: 0 5px;
+  font-size: 90%;
 }
 
 #DO {
   background: blue;
-  padding: 5px;
-  border-radius: 5px;
+  padding: 3px;
+  border-radius: 10px;
   color: white;
+  margin: 0 5px;
+  font-size: 90%;
 }
 
 #SEE {
   background: green;
-  padding: 5px;
-  border-radius: 5px;
+  padding: 3px;
+  border-radius: 10px;
   color: white;
+  margin: 0 5px;
+  font-size: 90%;
 }
