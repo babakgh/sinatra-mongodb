@@ -1,7 +1,7 @@
 <ul id="index-list">
 <% if @things %>
   <% @things.each do |thing| %>
-    <li><h3 <%= "style=\"text-decoration: line-through;\"" if thing.completed %>><%= "<span id=\"#{thing.tags}\"><a href=\"/#{thing.tags}\" id=\"tag-link\">#{thing.tags}</a></span>" %><%= "<a href=\"#\" class=\"reveal-notes\" id=\"#{thing.id}\">#{thing.title}</a>" %> <small style="margin: 0 20px;"> <%= thing.votes %> </small> <a href="/<%=thing.id%>/vote-up" id="<%= thing.id %>"class="vote-up">&#x25B2;</a><a href="/<%=thing.id%>/vote-down" id="<%= thing.id %>" class="vote-down">&#x25BC;</a></h3><p style="display:none;"><%= thing.notes %></p></li><hr>
+    <li><h3 <%= "style=\"text-decoration: line-through;\"" if thing.completed %>><%= "<span id=\"#{thing.tags}\"><a href=\"/#{thing.tags}\" id=\"tag-link\">#{thing.tags}</a></span>" %><%= "<span class=\"reveal-notes\" id=\"#{thing.id}\">#{thing.title}</span>" %> <small style="margin: 0 20px;"> <%= thing.votes %> </small> <a href="/<%=thing.id%>/vote-up" id="<%= thing.id %>"class="vote-up">&#x25B2;</a><a href="/<%=thing.id%>/vote-down" id="<%= thing.id %>" class="vote-down">&#x25BC;</a></h3><p style="display:none;"><%= thing.notes %></p></li><hr>
   <% end %>
 <% else %>
   <li> No things to do </li>
@@ -9,7 +9,7 @@
 </ul>
 
 <script type="text/javascript">
-$('a.reveal-notes').click(function(){
+$('span.reveal-notes').click(function(){
   $(this).parent().next().slideToggle();
 });
 </script>

@@ -55,6 +55,10 @@ ul#index-list li {
   margin-left: 20px;
 }
 
+.reveal-notes {
+  cursor: pointer;
+}
+
 #approve:hover {
   color: green ;
 }
