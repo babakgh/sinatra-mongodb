@@ -12,7 +12,7 @@ class ThingsWeShouldDo < Sinatra::Base
     MongoMapper.connection = Mongo::Connection.from_uri(ENV['MONGOHQ_URL'])
     MongoMapper.database = uri.path.gsub(/^\//, '')
   else
-    MongoMapper.database = 'sobtvse'
+    MongoMapper.database = 'things'
   end
 
   helpers do
