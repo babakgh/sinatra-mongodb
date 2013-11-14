@@ -15,7 +15,7 @@
   <script language="javascript" type="text/javascript">
     today  = new Date();
     todayEpoch  = today.getTime();
-    target = new Date('31 August, 2012'); 
+    target = new Date('31 August, 2014'); 
     targetEpoch = target.getTime();
     daysLeft = Math.floor(((targetEpoch - todayEpoch) / (60*60*24)) / 1000);
   </script>
@@ -40,7 +40,7 @@
     <% if flash[:notice] %>
       <center><span class="notice"><%= flash[:notice] %></span></center>
     <% end %>
-    <h5><script>document.write(daysLeft);</script> days left in PDX <%= "to do #{@count} things" if @count %></h5>
+    <h5><script>document.write(daysLeft);</script> days left in PDX <%= "to do #{@count} things" if @count %>... <a href="/admin">Login to Admin page (user: admin, pass: admin)</a></h5>
     <div id="content">
       <%= yield %>
     </div>
