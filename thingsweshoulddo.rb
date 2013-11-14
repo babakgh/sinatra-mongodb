@@ -26,7 +26,7 @@ class ThingsWeShouldDo < Sinatra::Base
 
     def authorized?
       @auth ||=  Rack::Auth::Basic::Request.new(request.env)
-      @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [ENV['admin_username'], ENV['admin_password']]
+      @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == [cloud66, cloud66]
     end
 
     def is_admin?
