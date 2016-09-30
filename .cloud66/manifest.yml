@@ -1,24 +1,19 @@
-idevelopment:
-    sinatra: 
-        server: 
-            extra_packages: 
-                - atop
-                - chrony
-                
+default: &default
+  sinatra:
+    configuration:
+      custom_deploy_command: env|grep -E "^RY_|^ALGOLIA_|^IMG_" > .env.local
+
+feature-testing:
+  <<: *default
+  sinatra:
+    configuration:
+      custom_deploy_command: env|grep -E "^RY_|^ALGOLIA_|^IMG_" > .env.local; redis-cli flushall
+
 staging:
-    sinatra: 
-        server: 
-            extra_packages: 
-                - atop
-                - chrony
-        configuration:
-            ruby_version: 2.1.5
+  <<: *default
+  sinatra:
+    configuration:
+      custom_deploy_command: env|grep -E "^RY_|^ALGOLIA_|^IMG_" > .env.local; redis-cli flushall
 
 production:
-    sinatra: 
-        server: 
-            extra_packages: 
-                - atop
-                - chrony                
-        configuration:
-            ruby_version: 2.1.5
+  <<: *default
