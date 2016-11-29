@@ -10,7 +10,7 @@ class ThingsWeShouldDo < Sinatra::Base
   if ENV['MONGODB_URL']
     uri = URI.parse(ENV['MONGODB_URL'])
     MongoMapper.connection = Mongo::Connection.from_uri(ENV['MONGODB_URL'])
-    MongoMapper.database = uri.path.gsub(/^\//, '')
+    MongoMapper.database = ENV['MONGODB_DATABASE']
   else
     MongoMapper.database = 'things'
   end
