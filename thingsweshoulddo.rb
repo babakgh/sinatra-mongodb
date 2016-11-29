@@ -1,7 +1,7 @@
 class ThingsWeShouldDo < Sinatra::Base
   enable :sessions
   enable :method_override
-  register Sinatra::Flash 
+  register Sinatra::Flash
   ######################## CONFIG ######################
   set :title, 'Things We Should Do Before Leaving Oregon'
   set :google_analytics_id, ''
@@ -46,14 +46,13 @@ class ThingsWeShouldDo < Sinatra::Base
     timestamps!
   end
 
-  get '/' do 
+  get '/' do
     @things = Thing.where(suggestion:false).sort(:votes.desc)
     @count = Thing.where(suggestion:false, completed:false).count
     erb :index
   end
 
-  get '/admin' do 
-    protected!
+  get '/admin' do
     @no_header = true
     @thing = Thing.new
     @published = Thing.where(suggestion:false).sort(:updated_at.desc)
@@ -61,15 +60,13 @@ class ThingsWeShouldDo < Sinatra::Base
     erb :admin
   end
 
-  get '/new' do 
-    protected!
+  get '/new' do
     @no_header = true
     @thing = Thing.new
     erb :new
   end
 
-  post '/new' do 
-    protected!
+  post '/new' do
     @thing = Thing.create(params[:thing])
     redirect '/admin'
   end
@@ -80,23 +77,23 @@ class ThingsWeShouldDo < Sinatra::Base
     erb :suggestion
   end
 
-  post '/suggestion' do 
+  post '/suggestion' do
     @thing = Thing.create(params[:thing])
     flash[:notice] = "Thanks for the suggestion!"
     redirect '/'
   end
 
-  get '/EAT' do 
+  get '/EAT' do
     @things = Thing.where(suggestion:false, :tags => 'EAT').sort(:votes.desc)
     erb :index
   end
 
-  get '/SEE' do 
+  get '/SEE' do
     @things = Thing.where(suggestion:false, :tags => 'SEE').sort(:votes.desc)
     erb :index
   end
 
-  get '/DO' do 
+  get '/DO' do
     @things = Thing.where(suggestion:false, :tags => 'DO').sort(:votes.desc)
     erb :index
   end
@@ -116,7 +113,6 @@ class ThingsWeShouldDo < Sinatra::Base
   end
 
   get '/:id/approve' do |id|
-    protected!
     @thing = Thing.find(id)
     @thing.suggestion = false
     @thing.save
@@ -124,7 +120,6 @@ class ThingsWeShouldDo < Sinatra::Base
   end
 
   get '/:id/complete' do |id|
-    protected!
     @thing = Thing.find(id)
     @thing.completed = true
     @thing.save
@@ -132,31 +127,27 @@ class ThingsWeShouldDo < Sinatra::Base
   end
 
   get '/:id/edit' do |id|
-    protected!
     @no_header = true
     @thing = Thing.find(id)
     erb :edit
   end
 
   post '/:id/edit' do |id|
-    protected!
     @thing = Thing.find(id)
     @thing.update_attributes(params[:thing])
     redirect '/admin'
   end
 
   get '/:id/delete' do |id|
-    protected!
     @thing = Thing.find(id)
     @thing.destroy unless @thing.nil?
     redirect '/admin'
   end
 
-  get '/:id' do |id| 
+  get '/:id' do |id|
     @thing = Thing.find(id)
     erb :thing
   end
 
   not_found { erb :'404' }
 end
-
